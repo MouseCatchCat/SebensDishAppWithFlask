@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Dishes</title>
+</head>
+<body>
+    <h1>Sebens Home dishes</h1>
+    <p>This dish in English: {{dish.name_en}}</p>
+    <p>This dished in Dutch: {{dish.name_nl}}</p>
+    <a href="{{url_for('welcome')}}" class="btn btn-dark" role="button" aria-pressed="true">Home</a>
+    {% if index < max_index %}
+    <a href="{{url_for('dishes', index = index + 1)}}" class="btn btn-secondary" role="button" aria-pressed="true">Next Card</a>
+    {% else %}
+     <a href="{{url_for('dishes', index = 0)}}" class="btn btn-secondary" role="button" aria-pressed="true">Start Over</a>
+    {% endif %}
+    <a href="{{ url_for('remove_dish', index=index) }}" class="btn btn-secondary" role="button" aria-pressed="true">Remove this dish</a>
+</body>
+</html>
